@@ -1,6 +1,7 @@
-import type {Metadata} from "next";
-import {ArrowUpLeft,GraduationCap} from "lucide-react";
-import {getCatalog} from "@/lib/catalog";
-import {priceLabel,oldProductLink} from "@/lib/data";
-export const metadata:Metadata={title:"آموزش و دوره‌ها"};export const dynamic="force-dynamic";
-export default async function Education(){const courses=(await getCatalog()).filter(p=>p.category==="education");return <><section className="internal-hero"><div className="shell"><span className="eyebrow">EDUCATION / RADONIK</span><h1>آموزش <em>تخصصی</em></h1><p>دوره‌های حفاظت در برابر اشعه و دزیمتری ارائه‌شده در وب‌سایت رسمی شرکت.</p></div></section><section className="shell section"><div className="section-heading"><div><span className="eyebrow">دوره‌های آموزشی</span><h2>یادگیری <em>تخصصی</em></h2></div><p>جزئیات زمان، ظرفیت، برنامه و ثبت‌نام دوره در سایت اصلی بررسی شود.</p></div><div className="education-list">{courses.map((p,i)=><a href={oldProductLink(p)} target="_blank" rel="noopener noreferrer" key={p.id}><span className="education-icon"><GraduationCap size={26}/></span><div><small>COURSE / {String(i+1).padStart(2,"0")}</small><h3>{p.title}</h3></div><strong>{priceLabel(p.price)}</strong><ArrowUpLeft size={19}/></a>)}</div></section></>;}
+import type {Metadata} from 'next';
+import Link from 'next/link';
+import {ArrowUpLeft,GraduationCap} from 'lucide-react';
+import {getCatalog} from '@/lib/catalog';
+import {priceLabel} from '@/lib/data';
+export const metadata:Metadata={title:'آموزش و دوره‌ها'};export const dynamic='force-dynamic';
+export default async function Education(){const courses=(await getCatalog()).filter(p=>p.category==='education');return <><section className="internal-hero"><div className="shell"><span className="eyebrow">EDUCATION / RADONIK</span><h1>آموزش <em>تخصصی</em></h1><p>دوره‌های حفاظت در برابر اشعه و دزیمتری پرتو نگار شهاب.</p></div></section><section className="shell section"><div className="section-heading"><div><span className="eyebrow">دوره‌های آموزشی</span><h2>یادگیری <em>تخصصی</em></h2></div><p>برای دریافت برنامه زمانی، ظرفیت واقعی و ثبت درخواست حضور، دوره موردنظر را انتخاب کنید.</p></div><div className="education-list">{courses.map((p,i)=><Link href={'/shop/'+p.id} key={p.id}><span className="education-icon"><GraduationCap size={26}/></span><div><small>COURSE / {String(i+1).padStart(2,'0')}</small><h3>{p.title}</h3></div><strong>{priceLabel(p.price)}</strong><ArrowUpLeft size={19}/></Link>)}</div></section></>}

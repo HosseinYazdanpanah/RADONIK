@@ -1,23 +1,23 @@
 // Verified editorial snapshot from radonik.com, observed 2026-10-28.
 // These are not claims of current stock, license validity or guaranteed prices.
-export const SOURCE="https://radonik.com";
+export const SOURCE="";
 export type Category={id:string;name:string;source:string};
 export const categories:Category[]=[
-{id:"education",name:"آموزش",source:SOURCE+"/product-category/آموزش/"},
-{id:"protection",name:"تجهیزات حفاظت پرتوی",source:SOURCE+"/product-category/تجهیزات-حفاظت-پرتوی/"},
-{id:"dosimetry",name:"خدمات دزیمتری فردی",source:SOURCE+"/product-category/خدمات-دزیمتری/"},
-{id:"readers",name:"خوانشگرهای دزیمتر TLD",source:SOURCE+"/product-category/خوانشگرهای-دزیمتر/"},
-{id:"tld",name:"دزیمترهای TLD و تجهیزات جانبی",source:SOURCE+"/product-category/دزیمترهای-tld-و-تجهیزات-جانبی/"},
-{id:"digital",name:"دزیمترهای فردی و محیطی دیجیتال",source:SOURCE+"/product-category/دزیمترهای-فردی-و-محیطی-دیجیتال/"},
-{id:"systems",name:"سامانه ها و سایر تجهیزات",source:SOURCE+"/product-category/سامانه-ها-و-سایر-تجهیزات/"},
-{id:"detectors",name:"سایر انواع آشکارسازها",source:SOURCE+"/product-category/سایر-انواع-آشکارسازها/"},
-{id:"spectroscopy",name:"طیف نگارها و تجهیزات جانبی",source:SOURCE+"/product-category/طیف-نگارها-و-تجهیزات-جانبی/"},
-{id:"emergency",name:"کیتهای مدیریت بحران پرتوی",source:SOURCE+"/product-category/کیتهای-مدیریت-بحران-پرتوی/"}];
+{id:"education",name:"آموزش",source:"/shop?category=education"},
+{id:"protection",name:"تجهیزات حفاظت پرتوی",source:"/shop?category=protection"},
+{id:"dosimetry",name:"خدمات دزیمتری فردی",source:"/shop?category=dosimetry"},
+{id:"readers",name:"خوانشگرهای دزیمتر TLD",source:"/shop?category=readers"},
+{id:"tld",name:"دزیمترهای TLD و تجهیزات جانبی",source:"/shop?category=tld"},
+{id:"digital",name:"دزیمترهای فردی و محیطی دیجیتال",source:"/shop?category=digital"},
+{id:"systems",name:"سامانه ها و سایر تجهیزات",source:"/shop?category=systems"},
+{id:"detectors",name:"سایر انواع آشکارسازها",source:"/shop?category=detectors"},
+{id:"spectroscopy",name:"طیف نگارها و تجهیزات جانبی",source:"/shop?category=spectroscopy"},
+{id:"emergency",name:"کیتهای مدیریت بحران پرتوی",source:"/shop?category=emergency"}];
 export type Product={id:string;title:string;category:string;price:number|null;image?:string;url?:string;summary?:string};
 const p=(id:string,title:string,category:string,price:number|null):Product=>({id,title,category,price});
 export const products:Product[]=[
-{...p("cp4100a","دزیمتر دیجیتال (الکترونیکی) فردی و محیطی مدل CP4100A","digital",115000000),image:SOURCE+"/wp-content/uploads/CP4100A-scaled.png",url:SOURCE+"/product/دزیمتر-دیجیتال-الکترونیکی-فردی-و-محیط/",summary:"دستگاه اندازه گیری دیجیتال دز برای دزیمتری پرتوهای ایکس و گاما، پایش محیط و جستجوی چشمه‌های رادیواکتیو."},
-{...p("gr5100","دستگاه خوانشگر TLD برای دزیمترهای دانه-شیشه‌ای (Glass bead) مدل GR5100","readers",6800000000),url:SOURCE+"/product/دستگاه-خوانشگر-tld-برای-دزیمترهای-دانه-ش/",summary:"بر اساس توضیح صفحه محصول، نمونه اولیه ساخته شده و آزمون‌های استاندارد در حال نهایی‌سازی هستند."},
+{...p("cp4100a","دزیمتر دیجیتال (الکترونیکی) فردی و محیطی مدل CP4100A","digital",115000000),image:"/brand/cp4100a-editorial.webp",summary:"دستگاه اندازه گیری دیجیتال دز برای دزیمتری پرتوهای ایکس و گاما، پایش محیط و جستجوی چشمه‌های رادیواکتیو."},
+{...p("gr5100","دستگاه خوانشگر TLD برای دزیمترهای دانه-شیشه‌ای (Glass bead) مدل GR5100","readers",6800000000),summary:"بر اساس توضیح صفحه محصول، نمونه اولیه ساخته شده و آزمون‌های استاندارد در حال نهایی‌سازی هستند."},
 p("cp4100","دزیمتر دیجیتال (الکترونیکی) فردی و محیطی مدل CP4100","digital",140000000),
 p("sm4200","دزیمتر دیجیتال (الکترونیکی) محیطی (با قابلیت استفاده فردی) مدل SM4200","digital",170000000),
 p("med-basic","دوره حفاظت در برابر اشعه برای مراکز پزشکی (دوره مقدماتی)","education",3500000),
@@ -73,4 +73,4 @@ phones:["02126644613","02178990216"],mobile:"09191240682",fax:"02178990121",emai
 export const articles=["دزیمتری پرتویی یا تابشی چیست؟","دزیمتری فردی و محیطی چیست؟","انواع دستگاه خوانشگر TLD ساخت کمپانی Harshaw","دزیمتری و کاربرد آن در پزشکی","پدیده ترمولومینسانس (TL) چیست؟"];
 export const permits=["مجوز برگزاری دوره‌های آموزشی حفاظت در برابر اشعه","نماینده انحصاری شرکت Epic Crystal در ایران، تولید کننده انواع آشکارسازها و سوسوزن ها","مجوز ارائه خدمات منابع پرتو با كاربرد غيرپزشکی","گواهی شرکت دانش‌بنیان","مجوز ارائه خدمات دزیمتری فردی ترمولومینسانس (نوترون)","مجوز ارائه خدمات دزیمتری دست و پا، لنز چشم","مجوز ارائه خدمات دزیمتری فردی ترمولومینسانس (فوتون و بتا)"];
 export function priceLabel(n:number|null){return n===null?"استعلام قیمت":new Intl.NumberFormat("fa-IR").format(n)+" تومان";}
-export function oldProductLink(item:Product){return item.url||SOURCE+"/?s="+encodeURIComponent(item.title)+"&post_type=product";}
+export function oldProductLink(item:Product){return "/shop/"+item.id;}

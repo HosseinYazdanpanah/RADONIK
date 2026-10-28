@@ -1,0 +1,6 @@
+-- Additive, standalone RADONIK support schema, no dependency on the legacy website.
+CREATE TABLE IF NOT EXISTS support_conversations (id uuid PRIMARY KEY,visitor_token_hash text NOT NULL,visitor_name varchar(120) NOT NULL,visitor_contact varchar(200),status varchar(16) NOT NULL DEFAULT 'open' CHECK (status IN ('open','closed')),created_at timestamptz NOT NULL DEFAULT now(),updated_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS support_messages (id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,conversation_id uuid NOT NULL REFERENCES support_conversations(id) ON DELETE CASCADE,sender varchar(12) NOT NULL CHECK (sender IN ('visitor','agent')),body text NOT NULL CHECK(length(body) BETWEEN 1 AND 2000),created_at timestamptz NOT NULL DEFAULT now());
+CREATE INDEX IF NOT EXISTS support_messages_by_conversation ON support_messages(conversation_id,created_at);
+CREATE TABLE IF NOT EXISTS support_presence (operator_id text PRIMARY KEY,last_seen timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS sales_inquiries (id uuid PRIMARY KEY, customer_name varchar(120) NOT NULL, contact varchar(200) NOT NULL, product_id varchar(120), details text NOT NULL CHECK (length(details)<=2000), created_at timestamptz NOT NULL DEFAULT now(), status varchar(16) NOT NULL DEFAULT 'new' CHECK (status IN ('new','reviewed','closed')));
